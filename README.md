@@ -6,17 +6,24 @@ API Endpoints
 The API endpoints are:
 
 api/users - to manage users
+
 api/books - to manage books
+
 api/checkouts - to manage checkouts
+
 api/login - to authenticate users
 
+
 How to Run
+
 Prerequisites
 Make sure you have the following installed:
 
 Docker
 Docker Compose
+
 Installation
+
 Clone the repository
 
 
