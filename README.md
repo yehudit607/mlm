@@ -13,6 +13,7 @@ api/checkouts - to manage checkouts
 
 api/login - to authenticate users
 
+edited:see api documentation: http://0.0.0.0:8000/docs/
 
 How to Run
 
