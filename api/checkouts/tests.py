@@ -1,13 +1,14 @@
-from django.test import TestCase
+from django.urls import reverse
+from rest_framework import status
+from rest_framework.test import APITestCase
+from api.models import Checkout, Book, User
 
-from api.models import User, Book, Checkout
 
-
-class CheckoutModelTests(TestCase):
+class CheckoutTests(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(
-            email='test@example.com',
-            password='testpassword'
+            email='user@example.com',
+            password='userpassword'
         )
         self.book = Book.objects.create(
             title='Test Book',
@@ -16,11 +17,13 @@ class CheckoutModelTests(TestCase):
             stock=10
         )
 
-    def test_create_checkout(self):
-        checkout = Checkout.objects.create(
-            user=self.user,
-            book=self.book,
-            due_date='2023-04-15'
-        )
-        self.assertEqual(checkout.user, self.user)
-        self.assertEqual(checkout.book, self.book)
+    def test_checkout_book(self):
+        self.client.login(email='user@example.com', password='userpassword')
+        url = reverse('checkout')
+        data = {
+            'book_id': self.book.id
+        }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Checkout.objects.count(), 1)
+

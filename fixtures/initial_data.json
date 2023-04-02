@@ -1,0 +1,54 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "email": "admin@example.com",
+      "password": "pbkdf2_sha256$260000$aRrZmuj5m5r3q3DQ2wqzj1$AVB8fF7X9IYWETLHZwmZGuSXfQ2V7yOggb0u0eYzYrw=",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "email": "user@example.com",
+      "password": "pbkdf2_sha256$260000$J0pDdBlL6WV1b1aMc6eT7T$TQ2f7l9XsCJ0H0ZD1aWlakgthbGJXdFStIy0dC2QJ3o=",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Sample Book 1",
+      "author": "Sample Author 1",
+      "isbn": "1234567890123",
+      "stock": 5
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Sample Book 2",
+      "author": "Sample Author 2",
+      "isbn": "2345678901234",
+      "stock": 3
+    }
+  },
+  {
+    "model": "checkouts.checkout",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "book": 1,
+      "due_date": "2023-04-15",
+      "returned": false
+    }
+  }
+]
